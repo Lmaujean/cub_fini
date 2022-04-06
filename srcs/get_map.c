@@ -88,7 +88,7 @@ char	**ft_get_map(int fd, const char *str, t_data *game, int i)
 	return (game->total_map);
 }
 
-char	**ft_get_file(int fd, const char *str)
+char	**ft_get_file(int fd, const char *str, int k)
 {
 	char	**param;
 	char	*line;
@@ -107,7 +107,7 @@ char	**ft_get_file(int fd, const char *str)
 	while (ret)
 	{
 		ret = get_next_line(fd, &line);
-		if (*line)
+		if (*line && ++k < 6)
 			param[i++] = ft_strdup(line);
 		free(line);
 	}

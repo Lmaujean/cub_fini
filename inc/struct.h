@@ -147,7 +147,7 @@ int				create_trgb(int t, int r, int g, int b);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int				*load_image_malloc(t_data *data, int *tab, int *xpm_data);
 int				*load_image(t_data *data, char *path);
-void			map_get_ply_pos_fix(t_data *parsed);
+void			map_player_pos(t_data *parsed);
 void			init_game(t_data *parsed);
 void			init_player_direction(t_data *parsed);
 void			free_exit2(t_data *parsed, char *print_msg_newline);
@@ -172,7 +172,7 @@ int				get_next_line(int fd, char **line);
 
 int				ft_valid_fd(char *str, int ac);
 void			ft_valid_file(char *str);
-char			**ft_get_file(int fd, const char *str);
+char			**ft_get_file(int fd, const char *str, int k);
 void			check_text(int fd, t_data *game);
 void			ft_get_param(int fd, char *str, t_data *game);
 int				ft_check_param_file(char *str);
@@ -189,6 +189,8 @@ void			ft_check_int_f(t_data *game);
 void			valid_path_texture(char *str, t_data *game);
 char			**ft_get_map(int fd, const char *str, t_data *game, int i);
 void			check_next_line(t_data *g, int i, int j);
+void			add_in_text3(t_data *game, char *str);
+void			add_in_text2(t_data *game, char *str);
 
 /******* UTILS *******/
 
@@ -222,9 +224,12 @@ void			print_doublechar(char **tab);
 int				check_last_line_nul(t_data *map);
 int				ft_first_line_of_map(char *str);
 void			init_struct(t_data *map);
-t_data			*parsing(int ac, char **av);
+t_data			*pars_cub(int ac, char **av);
 void			get_int_map(t_data *data);
 void			int_map(t_data *data, int *k, int i, int j);
 int				get_size_map(char **map, t_data *data);
+char			*get_file(char *path);
+char			**parse_file(char *path);
+int				ft_check_ext2(const char *file, const char *ext);
 
 #endif

@@ -22,7 +22,6 @@ void	draw2d(t_data *data)
 		new_vec2(data->s_width, data->s_height / 2),
 		t_color_to_int(data->floor_color));
 	compute_draw_ray(data);
-	draw_map_2d(data);
 }
 
 int	render(t_data *data)

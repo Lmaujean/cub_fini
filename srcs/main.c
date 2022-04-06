@@ -52,35 +52,6 @@ void	draw_background(t_data *data, int color)
 	}
 }
 
-void	draw_map_2d(t_data *data)
-{
-	int	xo;
-	int	yo;
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < data->y)
-	{
-		x = 0;
-		while (x < data->x)
-		{
-			xo = x * MAPTILE / 4;
-			yo = y * MAPTILE / 4;
-			if (data->int_map[y * data->x + x] == 1)
-				draw_square(data, new_vec2(xo + 1, yo + 1),
-					new_vec2(xo + MAPTILE / 4 - 1, yo + MAPTILE / 4 - 1),
-					0x00000000);
-			else if (data->int_map[y * data->x + x] == 0)
-				draw_square(data, new_vec2(xo + 1, yo + 1),
-					new_vec2(xo + MAPTILE / 4 - 1, yo + MAPTILE / 4 - 1),
-					0x00FFFFFF);
-			x++;
-		}
-		y++;
-	}
-}
-
 int	close_w(t_data *parsed)
 {
 	free_exit(parsed, 0, NULL);
@@ -91,8 +62,8 @@ int	main(int ac, char *av[])
 {
 	t_data	*map;
 
-	map = parsing(ac, av);
-	map_get_ply_pos_fix(map);
+	map = pars_cub(ac, av);
+	map_player_pos(map);
 	init_game(map);
 	map->tex_n = load_image(map, map->text.no);
 	map->tex_s = load_image(map, map->text.so);

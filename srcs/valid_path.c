@@ -19,18 +19,15 @@ void	add_in_text(t_data *game, char *str)
 
 	split = ft_split(str, ' ');
 	line = ft_strtrim(split[0], " \t");
-	if (!ft_strncmp(line, "NO", 3) && game->text.no == NULL)
+	if (!ft_strncmp(line, "NO", 2) && game->text.no == NULL)
 		game->text.no = ft_strdup(split[1]);
-	if (!ft_strncmp(line, "SO", 3) && game->text.so == NULL)
+	if (!ft_strncmp(line, "SO", 2) && game->text.so == NULL)
 		game->text.so = ft_strdup(split[1]);
-	if (!ft_strncmp(line, "WE", 3) && game->text.we == NULL)
+	if (!ft_strncmp(line, "WE", 2) && game->text.we == NULL)
 		game->text.we = ft_strdup(split[1]);
-	if (!ft_strncmp(line, "EA", 3) && game->text.ea == NULL)
+	if (!ft_strncmp(line, "EA", 2) && game->text.ea == NULL)
 		game->text.ea = ft_strdup(split[1]);
-	if (!ft_strncmp(line, "F", 2) && game->text.f == NULL)
-		game->text.f = ft_strdup(split[1]);
-	if (!ft_strncmp(line, "C", 2) && game->text.c == NULL)
-		game->text.c = ft_strdup(split[1]);
+	add_in_text2(game, str);
 	ft_freedouble(split);
 	free(line);
 }

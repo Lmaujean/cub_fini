@@ -35,6 +35,7 @@ void	ft_freeallchar(t_data *game)
 			free(game->texture[i]);
 		i++;
 	}
+	exit(EXIT_FAILURE);
 }
 
 int	ft_error(int c, t_data *game)

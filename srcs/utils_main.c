@@ -12,7 +12,7 @@
 
 #include "../inc/struct.h"
 
-void	map_get_ply_pos_fix(t_data *parsed)
+void	map_player_pos(t_data *parsed)
 {
 	int	i;
 	int	j;
@@ -69,7 +69,7 @@ void	init_player_direction(t_data *parsed)
 
 void	free_exit2(t_data *parsed, char *print_msg_newline)
 {
-	free(parsed->total_map);
+	ft_freedouble(parsed->total_map);
 	free(parsed->int_map);
 	free(parsed->text.no);
 	free(parsed->text.so);

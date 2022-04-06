@@ -89,7 +89,7 @@ void	ft_get_param(int fd, char *str, t_data *game)
 {
 	char	**param;
 
-	param = ft_get_file(fd, str);
+	param = ft_get_file(fd, str, -1);
 	fd = open(str, O_RDONLY);
 	game->total_map = ft_get_map(fd, str, game, 0);
 	close(fd);

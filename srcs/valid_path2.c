@@ -61,25 +61,19 @@ void	valid_path_texture(char *str, t_data *game)
 {
 	int	fd;
 
-	if (!ft_check_ext(str, ".xpm"))
+	if (str == NULL)
+		ft_error(10, game);
+	if (!ft_check_ext2(str, ".xpm"))
 	{
 		printf("Error\nFile Not .xpm\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-	{
-		printf("Error\nPath Not Valid\n");
-		ft_freeallchar(game);
-		exit(EXIT_FAILURE);
-	}
+		ft_error(10, game);
 	close(fd);
 	fd = open(str, O_DIRECTORY);
 	if (fd != -1)
-	{
-		printf("Error\nPath Not Valid\n");
-		ft_freeallchar(game);
-		exit(EXIT_FAILURE);
-	}
+		ft_error(10, game);
 	close(fd);
 }

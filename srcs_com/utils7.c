@@ -82,7 +82,7 @@ void	get_int_map(t_data *data)
 		data->int_map[k] = -1;
 }
 
-t_data	*parsing(int ac, char **av)
+t_data	*pars_cub(int ac, char **av)
 {
 	t_data	*map;
 	int		fd;
